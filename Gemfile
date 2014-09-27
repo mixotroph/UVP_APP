@@ -14,6 +14,7 @@ group :development do
   gem 'guard-rspec', '2.5.0'
   gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.0'
+  gem 'bcrypt-ruby', '3.1.2'
   gem 'childprocess'
 end
 
