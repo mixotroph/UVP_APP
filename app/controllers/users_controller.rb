@@ -10,7 +10,7 @@ class UsersController < ApplicationController
    def create
     @user = User.new(user_params)    # Not the final implementation!
     if @user.save
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome to the UVP-Manager!"
       redirect_to @user
     else
       render 'new'
