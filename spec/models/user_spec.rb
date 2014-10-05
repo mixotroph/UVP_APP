@@ -4,10 +4,10 @@ describe User do
 
   before do
    @user = User.new(name: "Example User", email: "user@example.com", 
-    password: "foobar", password_confirmation: "foobar") 
+    password: "foobar", password_confirmation: "foobar")
   end
 
-  subject { @user }
+ subject { @user }
 
   #test for the existence of name and email attributes:
   it { should respond_to(:name) }
@@ -15,6 +15,7 @@ describe User do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
 
   # just a sanity check, verifying that the subject (@user) is initially valid
@@ -40,8 +41,8 @@ describe User do
   describe "when email format is invalid" do
     it "should be invalid" do
       addresses = %w[user@foo,com user_at_foo.org example.user@foo.
-                     foo@bar_baz.com foo@bar+baz.com]
-      addresses.each do |invalid_address|
+       foo@bar_baz.com foo@bar+baz.com]
+       addresses.each do |invalid_address|
         @user.email = invalid_address
         expect(@user).not_to be_valid
       end
@@ -68,27 +69,27 @@ describe User do
     it { should_not be_valid }
   end
 
-# We definitely don’t want users to enter a blank password
-describe "when password is not present" do
-  before do
-    @user = User.new(name: "Example User", email: "user@example.com",
-                     password: " ", password_confirmation: " ")
+  # We definitely don’t want users to enter a blank password
+  describe "when password is not present" do
+    before do
+      @user = User.new(name: "Example User", email: "user@example.com",
+        password: " ", password_confirmation: " ")
+    end
+    it { should_not be_valid }
   end
-  it { should_not be_valid }
-end
 
-# test the case of a mismatch
-describe "when password doesn't match confirmation" do
-  before { @user.password_confirmation = "mismatch" }
-  it { should_not be_valid }
-end
+  # test the case of a mismatch
+  describe "when password doesn't match confirmation" do
+    before { @user.password_confirmation = "mismatch" }
+    it { should_not be_valid }
+  end
 
-describe "return value of authenticate method" do
-  before { @user.save }
-  let(:found_user) { User.find_by(email: @user.email) }
+  describe "return value of authenticate method" do
+    before { @user.save }
+    let(:found_user) { User.find_by(email: @user.email) }
 
-  describe "with valid password" do
-    it { should eq found_user.authenticate(@user.password) }
+    describe "with valid password" do
+      it { should eq found_user.authenticate(@user.password) }
   end
 
   describe "with invalid password" do
@@ -100,10 +101,14 @@ describe "return value of authenticate method" do
 end
 
 # 
-describe "with a password that's too short" do
-  before { @user.password = @user.password_confirmation = "a" * 5 }
-  it { should be_invalid }
-end  
-
+  describe "with a password that's too short" do
+    before { @user.password = @user.password_confirmation = "a" * 5 }
+    it { should be_invalid }
+  end  
+  
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
+  end
 
 end
