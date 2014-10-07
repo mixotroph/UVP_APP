@@ -9,7 +9,7 @@ describe User do
 
  subject { @user }
 
-  #test for the existence of name and email attributes:
+  #test for the existence of attributes:
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:password_digest) }
@@ -17,6 +17,16 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:admin) }
+
+  describe "with admin attribute set to 'true'" do
+    before do
+      @user.save!
+      @user.toggle!(:admin)
+    end
+
+    it { should be_admin }
+  end
 
   # just a sanity check, verifying that the subject (@user) is initially valid
   it { should be_valid }

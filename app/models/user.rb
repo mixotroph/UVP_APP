@@ -26,12 +26,14 @@ class User < ActiveRecord::Base
 
 	def User.digest(token)
 		# call to 'to_s' is makes sure we can handle 'nil' tokens, 
-		# which shouldn’t happen in browsers but sometimes happens in tests.
+		# which shouldn’t happen in browsers but sometimes happens in testsh
 		Digest::SHA1.hexdigest(token.to_s)
 	end
 
 	# private methods
 	private
+		# customize the default "per_page" value for pagination
+		self.per_page = 10
 
 		def create_remember_token
 			self.remember_token = User.digest(User.new_remember_token)
