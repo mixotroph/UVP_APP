@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 	before_save { self.email = email.downcase }
 	# method, equivalent to validates(:name, presence: true)
 	validates :name, presence: true, length: { maximum: 50 }
+	validates :surname, presence: true, length: {maximum: 70}
 
 	# This expression below allows invalid addresses such as foo@bar..com
 	# (that contain consecutive dots).

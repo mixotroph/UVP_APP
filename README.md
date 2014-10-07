@@ -1,5 +1,9 @@
-# Ruby on Rails Tutorial: first application
+# UVP-Manager Prototype
 
-This is the first application for the
-[*Ruby on Rails Tutorial*](http://railstutorial.org/)
-by [Michael Hartl](http://michaelhartl.com/).
+This is the first prototype for the
+[UVP-Manager App](https://uvp-app.heroku.org/)
+by [Christoph van Heteren-Frese](#).
+
+## Description 
+
+_comming soon_

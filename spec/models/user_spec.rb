@@ -3,14 +3,15 @@ require 'spec_helper'
 describe User do
 
   before do
-   @user = User.new(name: "Example User", email: "user@example.com", 
-    password: "foobar", password_confirmation: "foobar")
+   @user = User.new(name: "Example Name", surname: "Example Surname", 
+    email: "user@example.com", password: "foobar", password_confirmation: "foobar")
   end
 
  subject { @user }
 
   #test for the existence of attributes:
   it { should respond_to(:name) }
+  it { should respond_to(:surname) }
   it { should respond_to(:email) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
@@ -35,6 +36,11 @@ describe User do
   # the resulting @user object is invalid:
   describe "when name is not present" do
     before { @user.name = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when surname is not present" do
+    before { @user.surname = " " }
     it { should_not be_valid }
   end
 

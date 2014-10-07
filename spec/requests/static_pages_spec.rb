@@ -7,8 +7,8 @@ describe "Static pages" do
   describe "Home page" do
     before{visit root_path}
 
-    it { should have_content('Sample App') }
-    it { should have_title ("Sample App") }
+    it { should have_content('UVP-Manager') }
+    it { should have_title ('UVP-Manager App') }
     it { should have_title ("Home") }
   end
 
@@ -16,7 +16,7 @@ describe "Static pages" do
     before{visit help_path}
 
     it { should have_content('Help') }
-    it { should have_title('Sample App') }
+    it { should have_title('UVP-Manager App') }
     it { should have_title('Help') }
   end
 
@@ -24,7 +24,7 @@ describe "Static pages" do
     before{visit about_path}
 
     it { should have_content('About') }
-    it { should have_title('Sample App') }
+    it { should have_title('UVP-Manager App') }
     it { should have_title('About') }
   end
 
