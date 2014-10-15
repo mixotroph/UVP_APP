@@ -1,13 +1,17 @@
 class User < ActiveRecord::Base
 
+	# option 'dependent: :destroy' arranges for the dependent microposts 
+	# to be destroyed when the user itself is destroyed
+	has_many :microposts, dependent: :destroy
+
 	before_create :create_remember_token
 
 	before_save { self.email = email.downcase }
-	# method, equivalent to validates(:name, presence: true)
+
 	validates :name, presence: true, length: { maximum: 50 }
 	validates :surname, presence: true, length: {maximum: 70}
 
-	# This expression below allows invalid addresses such as foo@bar..com
+	# TO-DO_ This expression below allows invalid addresses such as foo@bar..com
 	# (that contain consecutive dots).
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i	
 	
@@ -26,8 +30,8 @@ class User < ActiveRecord::Base
 	end
 
 	def User.digest(token)
-		# call to 'to_s' is makes sure we can handle 'nil' tokens, 
-		# which shouldn’t happen in browsers but sometimes happens in testsh
+		# call to 'to_s' makes sure we can handle 'nil' tokens, 
+		# which shouldn’t happen in browsers but sometimes happens in tests
 		Digest::SHA1.hexdigest(token.to_s)
 	end
 
