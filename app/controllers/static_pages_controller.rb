@@ -11,4 +11,7 @@ class StaticPagesController < ApplicationController
 
   def impressum
   end
+
+  def news
+  end
 end

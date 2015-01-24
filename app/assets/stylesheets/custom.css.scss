@@ -1,5 +1,14 @@
 @import "bootstrap";
 
+@font-face {
+  font-family: 'Amburegul';
+  src: font-url('amburegul/Fonts/Amburegul.eot'); /* IE9 Compat Modes */
+  src: font-url('amburegul/Fonts/Amburegul.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       font-url('amburegul/Fonts/Amburegul.woff') format('woff'), /* Modern Browsers */
+       font-url('amburegul/Fonts/Amburegul.ttf')  format('truetype'), /* Safari, Android, iOS */
+       font-url('amburegul/Fonts/Amburegul.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
 /* mixins, variables, etc. */
 $grayMediumLight: #eaeaea;
 

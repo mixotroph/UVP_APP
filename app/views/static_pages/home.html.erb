@@ -1,4 +1,5 @@
 <% provide(:title, 'Home') %>
+<!-- Falls Benutzer eingeloggt ist: -->
 <% if signed_in? %>
 <div class="row">
 	<aside class="span4">
@@ -10,16 +11,15 @@
 		</section>
 	</aside>
 </div>
+<!-- Falls Benutzer NICHT eingeloggt ist: -->
 <% else %>
 <div class="center hero-unit">
-	<h1>Welcome to UVP-Manager</h1>
+	
+	<h1><font face="Permanent Marker" color="#ff6666", font-weight="normal">OSEBLI-</FONT>Unterrichtsplaner</h1>
 	<h2>
-		This is going to be THE App for creating and managing lesson plans.
+		Mit Hilfe dieser Webanwendung werden sich demnächst Unterichtspläne erstellen lassen.
 	</h2>
-	<%= link_to "Learn more!", about_path, class: "btn btn-large btn-info" %>
-	<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-success" %>
+	<%= link_to "Erfahre mehr!", about_path, class: "btn btn-large btn-info" %>
+	<%= link_to "Jetzt registrieren!", signup_path, class: "btn btn-large btn-success" %>
 </div>
 <% end %>
-<!-- 
-<%= link_to image_tag("http://upload.wikimedia.org/wikipedia/commons/2/29/ParusCaeruleus.jpg", alt: "Parus Caeruleus", width: "64px"), 'http://de.wikipedia.org/wiki/Blaumeise#mediaviewer/File:ParusCaeruleus.jpg' %>
--->
