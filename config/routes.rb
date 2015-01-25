@@ -2,7 +2,10 @@ FirstApp::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :microposts, only: [:create, :destroy]
+  #resources :microposts, only: [:create, :destroy]
+  resources :microposts do
+    post :update_row_order, on: :collection
+  end
 
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
