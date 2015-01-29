@@ -16,5 +16,6 @@
 //= require jquery-ui/effect-highlight
 //= require bootstrap
 //= require turbolinks
+//= require ckeditor/init
 //= require_tree .
 

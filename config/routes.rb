@@ -1,6 +1,7 @@
 FirstApp::Application.routes.draw do
 
   resources :users
+  resources :articles 
   resources :sessions, only: [:new, :create, :destroy]
   #resources :microposts, only: [:create, :destroy]
   resources :microposts do

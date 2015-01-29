@@ -8,6 +8,12 @@
   <%= render 'layouts/shim' %>
   <!-- Google-Font einbinden -->
   <link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+  <script type="text/javascript">
+    <!-- Popover einschaten-->
+    $(document).ready(function(){
+      $('[data-toggle="popover"]').popover();
+    });
+  </script>
 </head>
 <body>
 	<%= render 'layouts/header' %>

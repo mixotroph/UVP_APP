@@ -1,4 +1,25 @@
 <% provide(:title, @user.name) %>
+<div class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li><%= link_to "Neu", new_article_path %></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a data-toggle="tooltip" title="first tooltip" href="#">Hilfe</a></li>
+      <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Dropdown <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Opt1</a></li>
+                <li><a href="#">Opt2</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Opt3</a></li>
+              </ul>
+            </li>
+    </ul>
+  </div>
+</div>
+
 <div class="row">
   <aside class="span4">
     <section>
@@ -11,14 +32,14 @@
     </section>
   </aside>
   <div class="span8">
-    <% if @user.microposts.any? %>
-      <h3>Unterrichtsverlaufspläne (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @microposts %>
-      </ol>
-      <%= will_paginate @microposts %>
-    <% else %>
-          <h3>Keine Unterrichtsverlaufspläne</h3>
-    <% end %>
+   <% @articles.each do |article| %>
+  <h3><%= article.title.html_safe %></h3>
+  <%= link_to "Edit Article", edit_article_path(article) %>
+  <% if article != @articles.last %>
+  <hr />
+  <% end %> 
+<% end %>
   </div>
+  <!-- -->
+  <!-- -->
 </div>
