@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 	# option 'dependent: :destroy' arranges for the dependent microposts 
 	# to be destroyed when the user itself is destroyed
 	has_many :microposts, dependent: :destroy
+	has_many :uvps, dependent: :destroy
 
 	before_create :create_remember_token
 
