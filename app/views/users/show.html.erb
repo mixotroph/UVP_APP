@@ -23,11 +23,11 @@
 <div class="row">
   <aside class="span4">
     <section>
-      <h3>
+      <h4>
         <%= gravatar_for @user %>
         <%= @user.name %>
         <%= @user.surname %>
-      </h3>
+      </h4>
         <li> erstellt am  <%= Date.parse(@user.created_at.to_s).strftime("%d.%m.%Y") %> </li>
     </section>
   </aside>

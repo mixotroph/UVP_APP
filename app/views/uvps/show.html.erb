@@ -1,5 +1,6 @@
-<%= "Editing #{@uvp.title}" %>
-<div contenteditable="true"id=<%= "#{@uvp.id}" %> >
+<h3><%= "Bearbeiten: #{@uvp.title}" %></h3>
+<p>Hier kannst Du deinen Unterrichtsplan editieren:</p>
+<div class="bordered" contenteditable="true" id=<%= "#{@uvp.id}" %> >
    <%= @uvp.preface.html_safe %>
 </div>
 

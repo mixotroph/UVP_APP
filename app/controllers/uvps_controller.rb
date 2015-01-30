@@ -5,7 +5,6 @@ class UvpsController < ApplicationController
   end
 
   def show
-    @user = current_user
     @uvp = Uvp.find(params[:id])
   end
 
@@ -18,7 +17,7 @@ class UvpsController < ApplicationController
     if @uvp.save
       flash[:success] = "Unterrichtsverlaufsplan 
                             erfolgreich erstellt!"
-      redirect_to current_user
+      redirect_to user_uvp_path(current_user, @uvp ) 
     else
       render 'user/show'
     end

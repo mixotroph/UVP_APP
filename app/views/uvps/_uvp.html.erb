@@ -1,12 +1,11 @@
 <li>
-  <div class="content">
-  	<%= link_to uvp.title.html_safe, 
-  	user_uvp_path(:user_id => params{:id}, :id => uvp.id) %>
-  </div>
-  <div class="content">
-  	<%= uvp.preface.html_safe %>
-  </div>
+  <span>
+  	Titel: <%= link_to uvp.title.html_safe, user_uvp_path(@user, uvp ) %>
+  </span>
+  <span class="content">
+    <%= uvp.preface.html_safe %>
+  </span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(uvp.created_at) %> ago.
+    Vor <%= time_ago_in_words(uvp.updated_at) %> geändert.
   </span>
 </li>
