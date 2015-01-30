@@ -1,9 +1,11 @@
 class UvpsController < ApplicationController
+
   def index
     @uvps = Uvp.order("created_at DESC")
   end
 
   def show
+    @user = current_user
     @uvp = Uvp.find(params[:id])
   end
 
@@ -35,10 +37,20 @@ class UvpsController < ApplicationController
     end
   end
 
+  def update_inline_content
+    @uvp = Uvp.find(uvp_params[:uvp_id])
+    @uvp.preface = uvp_params[:preface]
+    @uvp.save
+    flash[:success] = "Erfolg!"
+
+    # this is a post action, updates sent via ajax, no view rendered
+    render nothing: true 
+  end
+
 private
 
   def uvp_params
-    params.require(:uvp).permit(:title, :preface)
+    params.require(:uvp).permit(:uvp_id, :title, :preface)
   end
 
 

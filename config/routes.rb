@@ -1,9 +1,20 @@
 FirstApp::Application.routes.draw do
 
-  resources :users
-  resources :articles 
-  resources :uvps
+  #resources :users
+  # müll
+  resources :users do
+    resources :uvps do
+      post :update_inline_content, on: :collection
+    end
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :uvps
+
+  # MÜLL
+  resources :articles 
+  #resources :uvps
   #resources :microposts, only: [:create, :destroy]
   resources :microposts do
     post :update_row_order, on: :collection
@@ -17,6 +28,7 @@ FirstApp::Application.routes.draw do
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/impressum', to: 'static_pages#impressum', via: 'get'
   match '/news', to: 'static_pages#news', via: 'get'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

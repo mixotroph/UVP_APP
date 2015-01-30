@@ -6,6 +6,7 @@
   </ul>
 <% end %>
 <!-- -->
+  <%= form_for @uvp do |f| %>
     <div class="accordion" id="accordion2">
       <!-- -->
       <div class="accordion-group">
@@ -25,33 +26,59 @@
         </div>
         <div id="collapseOne" class="accordion-body collapse in">
           <div class="accordion-inner">
-          <%= form_for @uvp do |f| %>
             <div>
               <%= f.text_field :title %>
             </div>
             <div>
               <%= f.cktext_area :preface, rows: 10 %>
             </div>
-            <div>
-              <%= f.submit %>
-            </div>
-          <% end %>
           </div>
         </div>
       </div>
       <!-- -->
       <div class="accordion-group">
         <div class="accordion-heading">
-          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+          <div class="row">         
+            <div class="span6">
+              <a class="accordion-toggle" data-toggle="collapse" 
+                  data-parent="#accordion3" href="#collapseTwo">
+                  Das Thema der Lehr- und Lernprozesse</a>
+            </div>
+           <div class="span3 uvp_hilfe pull-right">
+           <button href="#" class="btn pull-right" data-toggle="popover" 
+            data-placement="right" 
+            data-content="Thema der Unterrichtsreihe/-einheit" 
+              title="" data-original-title="Individuelle Kompetenzentwicklung">Erklärung</button></div>
+          </div>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse in">
+          <div class="accordion-inner">
+            <div>
+              <%= f.text_field :title %>
+            </div>
+            <div>
+              <%= f.cktext_area :preface, rows: 10 %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- -->
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThre">
             Das Thema der Lehr- und Lernprozesse
           </a>
         </div>
-        <div id="collapseTwo" class="accordion-body collapse">
+        <div id="collapseThree" class="accordion-body collapse">
           <div class="accordion-inner">
             Anim pariatur cliche...
           </div>
         </div>
       </div>
     </div>
+                <div>
+              <%= f.submit %>
+            </div>
+  <% end %>
     <!-- -->
 

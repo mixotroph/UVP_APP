@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   before_action :signed_in_user, only: [:index, :edit, :update]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user,   only: [:show, :edit, :update]
   before_action :admin_user,     only: [:destroy]
 
   def index
@@ -53,6 +53,11 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :surname, :email, :password,
                                    :password_confirmation)
     end
+    
+    def uvp_params
+      params.require(:uvp).permit(:uvp_id, :title, :preface)
+    end
+
 
     # Before filters
 
