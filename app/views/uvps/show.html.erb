@@ -1,7 +1,23 @@
+<%= render "navbar_uvp" %>
 <h3><%= "Bearbeiten: #{@uvp.title}" %></h3>
 <p>Hier kannst Du deinen Unterrichtsplan editieren:</p>
-<div class="bordered" contenteditable="true" id=<%= "#{@uvp.id}" %> >
+<h4>Zusammenfassung</h4>
+<div class="bordered cke_show_borders" contenteditable="true" id=<%= "#{@uvp.id}" %> >
    <%= @uvp.preface.html_safe %>
 </div>
+<h4>Die individuelle Kompetenzentwicklung der Lehrenden</h4>
+<h4>Das Thema der Lehr- und Lernprozesse</h4>
+<h4>Der fachlich-inhaltliche Schwerpunkt</h4>
+<h4>Die Standards des Rahmenlehrplans</h4>
+<h4>Die von der Lehrkraft angestrebte, längerfristige
+	Kompetenzentwicklung</h4>
+<h4>Konkretisierung der Standards für die geplanten Lehr- und
+	Lernprozesse</h4>
+<h4>Die individuelle Kompetenzentwicklung der Lernenden</h4>
+<h4>Die Begründung der Lehr- und Lernstruktur</h4>
+<h4>Die Konkretisierung der geplanten Lehr- und Lernprozesse</h4>
+<h4>Aspekte der Sprachbildung</h4>
+<h4>Anlagen</h4>
+
 
 

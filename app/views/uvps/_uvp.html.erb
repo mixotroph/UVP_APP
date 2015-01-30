@@ -1,11 +1,17 @@
 <li>
-  <span>
-  	Titel: <%= link_to uvp.title.html_safe, user_uvp_path(@user, uvp ) %>
-  </span>
-  <span class="content">
-    <%= uvp.preface.html_safe %>
-  </span>
-  <span class="timestamp">
-    Vor <%= time_ago_in_words(uvp.updated_at) %> geändert.
-  </span>
+	<h4><%= uvp.title.html_safe =%>
+	<span class="label label-success">Neu!</span></h4>
+	<div >
+		<%= uvp.abstract %>
+	</div>
+	<div class="timestamp">
+		Vor <%= time_ago_in_words(uvp.updated_at) %> geändert.
+		 (id: <%= uvp.id %>)
+	</div>
+	<div class="uvp_button"> 
+		<%= link_to "Bearbeiten", user_uvp_path(@user, uvp), 
+			class: 'btn btn-mini btn-primary' %>
+		<%= link_to "Löschen", uvp, method: :delete,
+			data: { confirm: "You sure?" }, class: 'btn btn-mini' %>
+	</div >	
 </li>

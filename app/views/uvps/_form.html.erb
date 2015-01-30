@@ -5,19 +5,19 @@
     <% end %>
   </ul>
 <% end %>
-<!-- -->
+<!--  -->
 <%= form_for @uvp do |f| %>
   <div>
     <%= f.text_field :title %>
   </div>
   <p>Kurzbeschreibung:</p>
   <div>
-    <%= f.text_area :preface, rows: 5%>
+    <%= f.text_area :abstract, rows: 5%>
   </div>
   <div >
     <%= f.button "Erstellen" , :class => 'btn  btn-primary' %>
     <button class="btn btn-default">Abbrechen</button>
   </div>
 <% end %>
-    <!-- -->
+<!-- -->
 

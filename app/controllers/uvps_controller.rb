@@ -1,5 +1,8 @@
 class UvpsController < ApplicationController
 
+  before_action :signed_in_user, only: [:index, :edit, :show, :update]
+  before_action :correct_user,   only: [:show, :edit, :update]
+
   def index
     @uvps = Uvp.order("created_at DESC")
   end
@@ -14,6 +17,7 @@ class UvpsController < ApplicationController
 
   def create
     @uvp = current_user.uvps.build(uvp_params)
+    @uvp.preface=""
     if @uvp.save
       flash[:success] = "Unterrichtsverlaufsplan 
                             erfolgreich erstellt!"
@@ -46,11 +50,24 @@ class UvpsController < ApplicationController
     render nothing: true 
   end
 
+  def destroy
+    Uvp.find(params[:id]).destroy
+    flash[:success, dismissible: true] = "Unterrichtsplan gelöscht."
+    redirect_to users_url
+  end
+
 private
 
   def uvp_params
-    params.require(:uvp).permit(:uvp_id, :title, :preface)
+    params.require(:uvp).permit(:uvp_id, :title, :preface, :abstract)
   end
+
+   def correct_user
+      @user = User.find(params[:user_id]) 
+      unless current_user?(@user)
+        redirect_to root_url, notice: "Access denied!"
+      end
+    end
 
 
 end

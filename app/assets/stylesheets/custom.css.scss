@@ -212,8 +212,16 @@ input {
 .content {
   display: block;
 }
+
+.uvp_button {
+  display: block;
+  margin-top: 8px;
+}
 .timestamp {
+  margin-top: 2px;
+  font-size: 0.75em;
   color: $grayLight;
+
 }
 .gravatar {
   float: left;
@@ -227,6 +235,16 @@ input {
 .uvp_hilfe {
   padding: 3px 15px;
 }
+
+.uvp_header {
+    padding: 2px 0 0 0;
+    margin-top: 1.33em;
+    margin-bottom: 1.33em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
 aside {
   textarea {
     height: 100px;

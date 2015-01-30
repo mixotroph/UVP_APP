@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129161342) do
+ActiveRecord::Schema.define(version: 20150130215329) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20150129161342) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "abstract"
   end
 
   add_index "uvps", ["user_id", "created_at"], name: "index_uvps_on_user_id_and_created_at"

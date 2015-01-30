@@ -54,9 +54,9 @@ class UsersController < ApplicationController
                                    :password_confirmation)
     end
     
-    def uvp_params
-      params.require(:uvp).permit(:uvp_id, :title, :preface)
-    end
+    #def uvp_params
+    #  params.require(:uvp).permit(:uvp_id, :title, :preface)
+    #end
 
 
     # Before filters
