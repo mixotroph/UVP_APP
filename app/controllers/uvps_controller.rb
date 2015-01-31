@@ -52,7 +52,7 @@ class UvpsController < ApplicationController
 
   def destroy
     Uvp.find(params[:id]).destroy
-    flash[:success, dismissible: true] = "Unterrichtsplan gelöscht."
+    flash[:success] = "Unterrichtsplan gelöscht."
     redirect_to users_url
   end
 
@@ -68,6 +68,4 @@ private
         redirect_to root_url, notice: "Access denied!"
       end
     end
-
-
 end
