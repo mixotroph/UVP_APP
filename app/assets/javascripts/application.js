@@ -19,3 +19,14 @@
 //= require ckeditor/init
 //= require_tree .
 
+$(function () {  
+	$("div .pagination ul a").on("click",function () {  
+		 $.getScript(this.href);
+		 //$.ajax({
+		 //	url: $(this).href,
+		 //	dataType: 'script',
+		 //   method: 'get'
+         //   });
+    	return false;
+  	});  
+})  

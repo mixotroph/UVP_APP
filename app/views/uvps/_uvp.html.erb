@@ -1,8 +1,9 @@
 <li>
-	<h4><%= uvp.title.html_safe =%>
+	<h4>
+	<%= uvp.title.html_safe =%>
 	<span class="label label-success">Neu!</span></h4>
-	<div >
-		<%= uvp.abstract %>
+	<div  contenteditable="true" id=<%= "#{uvp.id}" %> data-column="abstract">
+		<%= uvp.abstract.html_safe %>
 	</div>
 	<div class="timestamp">
 		Vor <%= time_ago_in_words(uvp.updated_at) %> geändert.
@@ -15,3 +16,4 @@
 			data: { confirm: "You sure?" }, class: 'btn btn-mini' %>
 	</div >	
 </li>
+

@@ -1,27 +1,50 @@
 <% provide(:title, @user.name) %>
+<!-- -->
 <%= render "navbar" %>
 <div class="row">
+  <!-- -->
   <aside class="span4">
     <section>
-      <h4>
+      <h3>
         <%= gravatar_for @user %>
-        <%= @user.name %>
-        <%= @user.surname %>
-      </h4>
-        <li> erstellt am  <%= Date.parse(@user.created_at.to_s).strftime("%d.%m.%Y") %> </li>
+        Hallo <%= @user.name %>
+      </h3>
+    </section>
+    <!-- -->
+    <section>
+      Wilkommen bei OSEBLI!
     </section>
   </aside>
   <div class="span8">
-    <% if @user.uvps.any? %>
-      <h3>Unterrichtspläne (<%= @user.uvps.count %>)</h3>
-      <ol class="microposts">
-        <%= render @uvps %>
-      </ol>
-
-    <% else %>
-          <h3>Keine Unterrichtsverlaufspläne</h3>
-    <% end %>
+    <!-- start nav-tabs-->
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#up" data-toggle="tab">Unterrichtspläne</a></li>
+      <li><a href="#uvp" data-toggle="tab">Verlaufspläne</a></li>
+      <li><a href="#material" data-toggle="tab">Material</a></li>
+    </ul>
+    <!-- end nav-tabs end start content -->
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="up">
+        <!-- Are there any uvps? -->
+        <% if @user.uvps.any? %>
+          <h3>Unterrichtspläne (<%= @user.uvps.count %>)</h3>
+          <ol class="microposts">
+            <div id="uvps"><%= render @uvps %></div>
+          </ol> 
+          <%= will_paginate @uvps, :previous_label => 'Zurück', 
+            :next_label => 'Vor'%>
+        <% else %>
+          <h3>Keine Unterrichtspläne</h3>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="uvp">
+        <h3>Verlaufspläne</h3>
+      </div>
+      <div class="tab-pane fade" id="material">
+        <h3>Material</h3>
+      </div>
+    </div>
+    <!-- end content -->
   </div>
-  <!-- -->
-  <!-- -->
 </div>

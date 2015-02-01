@@ -2,7 +2,7 @@
 <h3><%= "Bearbeiten: #{@uvp.title}" %></h3>
 <p>Hier kannst Du deinen Unterrichtsplan editieren:</p>
 <h4>Zusammenfassung</h4>
-<div class="bordered cke_show_borders" contenteditable="true" id=<%= "#{@uvp.id}" %> >
+<div contenteditable="true" id=<%= "#{@uvp.id}" %> data-column="preface">
    <%= @uvp.preface.html_safe %>
 </div>
 <h4>Die individuelle Kompetenzentwicklung der Lehrenden</h4>

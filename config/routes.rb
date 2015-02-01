@@ -33,6 +33,9 @@ FirstApp::Application.routes.draw do
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/impressum', to: 'static_pages#impressum', via: 'get'
   match '/news', to: 'static_pages#news', via: 'get'
+  
+  #match '/users/update_inline_content', to: 'uvps#update_inline_content', via: 'post'
+ 
 
   # ===============
   # Useful examples

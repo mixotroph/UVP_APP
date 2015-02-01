@@ -41,9 +41,10 @@ class UvpsController < ApplicationController
   end
 
   def update_inline_content
-    @uvp = Uvp.find(uvp_params[:uvp_id])
-    @uvp.preface = uvp_params[:preface]
-    @uvp.save
+    
+    update_content uvp_params[:uvp_id], 
+      uvp_params[:column], uvp_params[:data]
+    
     flash[:success] = "Erfolg!"
 
     # this is a post action, updates sent via ajax, no view rendered
@@ -53,13 +54,13 @@ class UvpsController < ApplicationController
   def destroy
     Uvp.find(params[:id]).destroy
     flash[:success] = "Unterrichtsplan gelöscht."
-    redirect_to users_url
+    redirect_to current_user
   end
 
 private
 
   def uvp_params
-    params.require(:uvp).permit(:uvp_id, :title, :preface, :abstract)
+    params.require(:uvp).permit(:uvp_id, :title, :preface, :data, :column, :abstract)
   end
 
    def correct_user
