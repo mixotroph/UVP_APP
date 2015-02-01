@@ -34,7 +34,7 @@ FirstApp::Application.routes.draw do
   match '/impressum', to: 'static_pages#impressum', via: 'get'
   match '/news', to: 'static_pages#news', via: 'get'
   
-  #match '/users/update_inline_content', to: 'uvps#update_inline_content', via: 'post'
+  match '/users/update_inline_content', to: 'uvps#update_inline_content', via: 'post'
  
 
   # ===============
