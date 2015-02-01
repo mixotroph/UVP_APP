@@ -1,2 +1,16 @@
+$(function () {
+	$("div .pagination li a").each(function (e) {
+		var temp = $(this).attr("href");
+		var patt = new RegExp("<%= params[:page] %>");
+		var res =patt.test(temp);
+		if(res) {
+			i = $(this).parent().attr("class");
+			console.log(i);
+			$(this).parent().attr("class","active");
+		} else  {
+			$(this).parent().attr("class","");
+		}
+	});
+})   
 $('#uvps').html('<%= j render partial: "/uvps/uvp", :collection => @uvps%>');
 
