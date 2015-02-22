@@ -1,0 +1,30 @@
+<h1>Choreographien</h1>
+<table class="table table-bordered table-striped" id="sortable">
+  <thead>
+    <tr>
+      <th>Titel</th>
+      <th>Aktion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @choreographies.each do |choreography| %>
+      <tr data-item-id=<%= "#{choreography.id}" %> class="item">
+        <td>
+          <%= choreography.title %>
+        </td>
+        <td>
+        	<%= link_to 'Anzeigen', choreography_path(choreography), :class => 'btn btn-small btn-default ' %>
+        	<% if signed_in? %>
+        	<%= link_to 'Bearbeiten', edit_choreography_path(choreography), :class => 'btn btn-small  btn-default ' %>
+        	<%= link_to 'Löschen', choreography,
+        		method: :delete, data: { confirm: "You sure?" },  :class => 'btn btn-small  btn-danger ' %>
+        	<% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<% if signed_in? %>
+<%= link_to 'Neue Choreographie anlegen', new_choreography_path %>
+<% end %>

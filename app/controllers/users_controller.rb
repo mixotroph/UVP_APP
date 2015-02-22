@@ -12,6 +12,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @uvps = @user.uvps.paginate(page: params[:page], 
       :per_page => 3 )
+    #@microposts = Micropost.rank(:swimming_order).all
+    @microposts = @user.microposts.rank(:row_order)
+
+  end
+
+  def update_row_order
+
+    @micropost = Micropost.find(micropost_params[:micropost_id])
+    @micropost.row_order_position = micropost_params[:row_order_position]
+    @micropost.save
+
+    render nothing: true # this is a post action, updates sent via ajax, no view rendered
   end
   
   def new
@@ -34,7 +46,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "Profile aktualisiert"
       redirect_to @user
     else
       render 'edit'

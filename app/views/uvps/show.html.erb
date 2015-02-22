@@ -1,23 +1,142 @@
 <%= render "navbar_uvp" %>
 <h3><%= "Bearbeiten: #{@uvp.title}" %></h3>
 <p>Hier kannst Du deinen Unterrichtsplan editieren:</p>
-<h4>Zusammenfassung</h4>
-<div contenteditable="true" id=<%= "#{@uvp.id}" %> data-column="preface">
-   <%= @uvp.preface.html_safe %>
-</div>
-<h4>Die individuelle Kompetenzentwicklung der Lehrenden</h4>
-<h4>Das Thema der Lehr- und Lernprozesse</h4>
-<h4>Der fachlich-inhaltliche Schwerpunkt</h4>
-<h4>Die Standards des Rahmenlehrplans</h4>
-<h4>Die von der Lehrkraft angestrebte, längerfristige
-	Kompetenzentwicklung</h4>
-<h4>Konkretisierung der Standards für die geplanten Lehr- und
-	Lernprozesse</h4>
-<h4>Die individuelle Kompetenzentwicklung der Lernenden</h4>
-<h4>Die Begründung der Lehr- und Lernstruktur</h4>
-<h4>Die Konkretisierung der geplanten Lehr- und Lernprozesse</h4>
-<h4>Aspekte der Sprachbildung</h4>
-<h4>Anlagen</h4>
-
-
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        <h4>Zusammenfassung</h4>
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse in">
+      <div class="accordion-inner">
+        <div contenteditable="true" id=<%= "#{@uvp.id}" %> data-column="preface">
+   		<%= @uvp.preface.html_safe %>
+		</div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+        <h4>Die individuelle Kompetenzentwicklung der Lehrenden</h4>
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+        <h4>Das Thema der Lehr- und Lernprozesse</h4>
+      </a>
+    </div>
+    <div id="collapseThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>  
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+        <h4>Der fachlich-inhaltliche Schwerpunkt</h4>
+      </a>
+    </div>
+    <div id="collapseFour" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>  
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
+        <h4>Die Standards des Rahmenlehrplans</h4>
+      </a>
+    </div>
+    <div id="collapseFive" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>   
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">
+        <h4>Die von der Lehrkraft angestrebte, längerfristige
+			Kompetenzentwicklung</h4>
+      </a>
+    </div>
+    <div id="collapseSix" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>  
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeven">
+        <h4>Konkretisierung der Standards für die geplanten Lehr- und
+			Lernprozesse</h4>
+      </a>
+    </div>
+    <div id="collapseSeven" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>  
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseEight">
+        <h4>Die Begründung der Lehr- und Lernstruktur</h4>
+      </a>
+    </div>
+    <div id="collapseEight" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>  
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseNine">
+        <h4>Die Konkretisierung der geplanten Lehr- und Lernprozesse</h4>
+      </a>
+    </div>
+    <div id="collapseNine" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>  
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTen">
+        <h4>Aspekte der Sprachbildung</h4>
+      </a>
+    </div>
+    <div id="collapseTen" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseEleven">
+        <h4>Anlagen</h4>
+      </a>
+    </div>
+    <div id="collapseEleven" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>  
+</div> 
 

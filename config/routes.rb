@@ -11,8 +11,28 @@ FirstApp::Application.routes.draw do
       post :update_inline_content, on: :collection
     end
   end
-  resources :uvps
 
+  resources :users do
+    resources :uvps do
+      post :update_inline_content, on: :collection
+    end
+    resources :microposts do
+      resources :uvp_rows do
+        post :update_inline_content, on: :collection
+     end
+      post :update_inline_content, on: :collection
+    end
+  end
+  
+  resources :microposts do
+    resources :uvp_rows do
+      post :update_inline_content, on: :collection
+    end
+  end
+
+  resources :uvps
+  resources :uvp_rows
+  resources :choreographies
   resources :sessions, only: [:new, :create, :destroy]
 
   # MÜLL
@@ -35,6 +55,8 @@ FirstApp::Application.routes.draw do
   match '/news', to: 'static_pages#news', via: 'get'
   
   match '/users/update_inline_content', to: 'uvps#update_inline_content', via: 'post'
+  match '/microposts/update_inline_content', to: 'uvp_rows#update_inline_content', via: 'post'
+  match '/users/microposts/update_inline_content' , to: 'uvp_rows#update_inline_content', via: 'post'
  
 
   # ===============

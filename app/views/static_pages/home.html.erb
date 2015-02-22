@@ -1,18 +1,5 @@
 <% provide(:title, 'Home') %>
-<!-- Falls Benutzer eingeloggt ist: -->
-<% if signed_in? %>
-<div class="row">
-	<aside class="span4">
-		<section>
-			<%= render 'shared/user_info' %>
-		</section>
-		<section>
-			<%= render 'shared/micropost_form' %>
-		</section>
-	</aside>
-</div>
-<!-- Falls Benutzer NICHT eingeloggt ist: -->
-<% else %>
+
 <div class="center hero-unit">
 	
 	<h1><font face="Permanent Marker" color="#ff6666", font-weight="normal">OSEBLI-</FONT>Unterrichtsplaner</h1>
@@ -25,7 +12,7 @@
 <div class="row text-center">
 	           <div class="span3 hero-feature">
                 <div class="thumbnail">
-                    <img src="http://placehold.it/800x500" alt="">
+                    <%= link_to image_tag("technology.jpg", alt: "Osebli"), about_path, id: "logo" %>
                     <div class="caption">
                         <h3>OSEBLI</h3>
                         <p>Mit OSEBLI können Unterichtspläne erstellt  werden.</p>
@@ -38,11 +25,23 @@
 
            <div class="span3 hero-feature">
                 <div class="thumbnail">
-                    <img src="http://placehold.it/800x500" alt="">
+                    <%= link_to image_tag("board.jpg", alt: "Osebli"), choreographies_path, id: "logo" %>
+                    <div  class="caption">
+                        <h3>Basismodelle des Unterrichts</h3>
+                        <p>Erfahre  mehr über die 'Choreographien unterrichtlichen Lernens'</p>
+                        <p><%= link_to "Erfahre mehr!",
+                        choreographies_path, class: "btn btn-info" %></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="span3 hero-feature">
+                <div class="thumbnail">
+                    <%= link_to image_tag("board.jpg", alt: "Osebli"), about_path, id: "logo" %>
                     <div  class="caption">
                         <h3>CK-Editor</h3>
                         <p>Die Pläne können komfortabel mit Hilfe des
-                        	CK-Editors verfasst werden.</p>
+                            CK-Editors verfasst werden.</p>
                         <p><%= link_to "Erfahre mehr!",
                         about_path, class: "btn btn-info" %></p>
                     </div>
@@ -50,4 +49,3 @@
             </div>
         </div>
         <br>
-<% end %>

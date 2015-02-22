@@ -1,0 +1,29 @@
+<%= form_for(@choreography) do |f| %>
+  <% if @choreography.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@choreography.errors.count, "error") %> prohibited this micropost from being saved:</h2>
+
+      <ul>
+      <% @choreography.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :Ziele %><br>
+    <%= f.number_field :goal %>
+  </div>
+  <div class="field">
+    <%= f.label :Schritte %><br>
+    <%= f.text_field :steps %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

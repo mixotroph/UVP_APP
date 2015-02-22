@@ -1,0 +1,52 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h3>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+        <%= @user.surname %>
+      </h3>
+        <li> erstellt am  <%= Date.parse(@user.created_at.to_s).strftime("%d.%m.%Y") %> </li>
+    </section>
+  </aside>
+  <div class="span8">
+    <% if @user.microposts.any? %>
+      <h3>Unterrichtsverlaufspläne (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% else %>
+          <h3>Keine Unterrichtsverlaufspläne</h3>
+    <% end %>
+    <!-- -->
+    <div class="accordion" id="accordion2">
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+            Collapsible Group Item #1
+          </a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse in">
+          <div class="accordion-inner">
+            Anim pariatur cliche...
+          </div>
+        </div>
+      </div>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+            Collapsible Group Item #2
+          </a>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse">
+          <div class="accordion-inner">
+            Anim pariatur cliche...
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- -->
+  </div>
+</div>

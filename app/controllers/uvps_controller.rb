@@ -13,6 +13,7 @@ class UvpsController < ApplicationController
 
   def new
     @uvp = Uvp.new
+    @status = [['Active', 'active'], ['In Active', 'inactive']]
   end
 
   def create
@@ -23,7 +24,7 @@ class UvpsController < ApplicationController
                             erfolgreich erstellt!"
       redirect_to user_uvp_path(current_user, @uvp ) 
     else
-      render 'user/show'
+      render 'uvps/new'
     end
   end
 
@@ -42,12 +43,23 @@ class UvpsController < ApplicationController
 
   def update_inline_content
     
-    update_content uvp_params[:uvp_id], 
-      uvp_params[:column], uvp_params[:data]
+    id = uvp_params[:uvp_id]
+    data = uvp_params[:data]
+    column = uvp_params[:column]
+    table = uvp_params[:table]
+
+    if table == "uvp_row"
+      update_row_content uvp_params[:uvp_id], 
+        uvp_params[:column], uvp_params[:data]
+    else
+      update_content uvp_params[:uvp_id], 
+        uvp_params[:column], uvp_params[:data]
+    end
     
     flash[:success] = "Erfolg!"
 
-    # this is a post action, updates sent via ajax, no view rendered
+    # this is a post action, updates sent via ajax, 
+    # no view rendered!
     render nothing: true 
   end
 
@@ -57,16 +69,21 @@ class UvpsController < ApplicationController
     redirect_to current_user
   end
 
-private
+  private
 
-  def uvp_params
-    params.require(:uvp).permit(:uvp_id, :title, :preface, :data, :column, :abstract)
-  end
+    # whitelist  parameters to prevent wrongful mass assignment*
+    def uvp_params
+      params.require(:uvp).permit(:uvp_id, :title, :preface, :data, :column, :table, :abstract)
+    end
 
-   def correct_user
+    def correct_user
       @user = User.find(params[:user_id]) 
       unless current_user?(@user)
         redirect_to root_url, notice: "Access denied!"
       end
     end
 end
+
+# *computer vulnerability where an active record pattern in 
+#  web application is abused to modify data items that the 
+#  user should be not normally allowed to access

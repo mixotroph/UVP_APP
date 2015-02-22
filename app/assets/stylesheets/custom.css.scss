@@ -245,6 +245,12 @@ input {
     font-weight: bold;
 }
 
+.thumbnail img {
+  padding-left: 5px;
+  padding-bottom: 10px;
+  height: 132px
+}
+
 aside {
   textarea {
     height: 100px;

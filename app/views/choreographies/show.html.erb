@@ -1,0 +1,10 @@
+<h1><%= @choreography.title %></h1>
+<ul>
+	<% @steps.each do |key, step| %> 
+		<li>
+			<%= step.inspect %>
+		</li>
+	<% end %>
+</ul>
+<%= link_to 'Zurück zum Index', choreographies_path %>
+

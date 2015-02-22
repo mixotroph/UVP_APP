@@ -12,7 +12,9 @@
     <!-- Popover einschaten-->
     $(document).ready(function(){
       $('[data-toggle="popover"]').popover();
-  
+      $("#sortable").sortable({
+        handle: '.grab'
+        });
     });
   </script>
 </head>

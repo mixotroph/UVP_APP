@@ -12,11 +12,8 @@
 	<div class="uvp_button"> 
 		<%= link_to "Bearbeiten", user_uvp_path(@user, uvp), 
 			class: 'btn btn-mini btn-primary' %>
-		<a href="#myModal" role="button" class="btn btn-mini" data-toggle="modal">Löschen</a>
-		 <%= link_to "Löschen", uvp, method: :delete,
+		<%= link_to "Löschen", uvp, method: :delete,
 			data: { confirm: "You sure?" }, class: 'btn btn-mini' %>
 	</div >	
- 
-
 </li>
 

@@ -1,0 +1,18 @@
+<h1>Verlausfplan   <%= @micropost.title %> </h1>
+	<table class="table table-bordered table-striped" 
+	  id="sortable">
+	  <thead>
+	    <tr>
+	      <th></th>
+	      <th>Zeit</th>
+	      <th>Phase</th>
+	      <th>Lehreraktivität</th>
+	      <th>Schüleraktivität</th>
+	      <th>Medien/Sozialform</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <%= render @uvp_rows %></div>
+	  </tbody>
+	</table>
+<%= link_to 'Neue Zeile', new_user_micropost_uvp_row_path(:user_id => @micropost.user_id,:micropost_id =>@micropost.id), :class => 'btn btn-small  btn-default ' %> 

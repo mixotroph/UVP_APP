@@ -1,0 +1,22 @@
+<%= form_for(@uvp_row) do |f| %>
+  <% if @uvp_row.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@uvp_row.errors.count, "error") %> prohibited this micropost from being saved:</h2>
+      <ul>
+      <% @uvp_row.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :titel %><br>
+    <%= f.text_field :titel %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :micropost_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

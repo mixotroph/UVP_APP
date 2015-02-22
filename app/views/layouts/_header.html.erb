@@ -1,11 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <% if !signed_in? %>
         <%= link_to image_tag("simple_logo.png", alt: "Osebli", width: "64px"), root_path, id: "logo" %>
-      <% else %>
-        <%= link_to image_tag("simple_logo.png", alt: "Osebli", width: "64px"), current_user, id: "logo" %>
-      <% end %>
       <nav>
         <ul class="nav pull-right">
         <% if !signed_in? %>

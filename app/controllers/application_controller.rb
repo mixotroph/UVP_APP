@@ -11,4 +11,11 @@ class ApplicationController < ActionController::Base
     flash[:success] = "Erfolg!"
   end
 
+  def update_row_content(id, column, data, cke_id)
+    temp = id.to_i - cke_id.to_i
+    @uvp_row = UvpRow.find(temp)
+    @uvp_row.update({  column => data})
+    flash[:success] = "Erfolg!"
+  end
+
 end
