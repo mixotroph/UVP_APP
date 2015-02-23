@@ -1,11 +1,16 @@
 class MicropostsController < ApplicationController
 	before_action  :signed_in_user, only: [:create, :destroy]
+
+	def new
+		@micropost = current_user.microposts.build 
+	end
+	
 	def create
-		@micropost = Micropost.find(params[:id])
+		@micropost = current_user.microposts.build(micropost_params)
 		@uvp_row = current_user.microposts.build(micropost_params)
 		# flash[:success] = "micropost created!"
 		#redirect_to micropost_path
-
+		redirect_to root_path
 	end
 
 	def index
@@ -47,6 +52,6 @@ class MicropostsController < ApplicationController
 		private
 
 		def micropost_params
-			params.require(:micropost).permit(:id, :micropost_id, :content, :row_order_position)
+			params.require(:micropost).permit(:id, :micropost_id, :content, :row_order_position, :user_id)
     	end
 end

@@ -12,11 +12,25 @@
 	<div class="uvp_button"> 
 		<%= link_to "Bearbeiten", user_uvp_path(@user, uvp), 
 			class: 'btn btn-mini btn-primary' %>
-		<a href="#myModal" role="button" class="btn btn-mini" data-toggle="modal">Löschen</a>
+		<!-- <a href="#myModal" role="button" class="btn btn-mini" data-toggle="modal">Löschen</a> -->
 		 <%= link_to "Löschen", uvp, method: :delete,
 			data: { confirm: "You sure?" }, class: 'btn btn-mini' %>
 	</div >	
  
-
+<!-- Modal -->
+<!--<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Unterrichtsplan löschen</h3>
+  </div>
+  <div class="modal-body">
+    <p>Soll der Unterrichtsplan <%= uvp.title.html_safe =%> wirklich gelöscht werden?</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Abbrechen</button>
+    <%= link_to "Löschen", uvp, method: :delete,
+			 class: 'btn btn-danger' %>
+  </div>
+</div>  -->
 </li>
 

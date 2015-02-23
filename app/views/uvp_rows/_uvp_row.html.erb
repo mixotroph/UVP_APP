@@ -1,29 +1,24 @@
       <tr data-item-id=<%= "#{uvp_row.id}" %> class="item">
-        <td class="grab"><span><i class="icon-resize-vertical"></i></span>
+        <td class="span1"><span><i class="icon-resize-vertical"></i></span>
         	<span><i>  <%= link_to "", uvp_row, method: :delete,
                                      data: { confirm: "You sure?" }, class: 'icon-remove' %></i></span>
         	</span><span><i class="icon-info-sign"></i></span></td>
-        <td>
+        <td lass="span2"> 
         	<div contenteditable="true" id=<%= "#{uvp_row.id+100 }" %> data-column="zeit", cke_id="100">
         		<%= uvp_row.zeit.html_safe %>
         	</div>
         </td>
-        <td>
-        	<div contenteditable="true" id=<%= "#{uvp_row.id+200 }" %> data-column="phase", cke_id="200">
-        		<%= uvp_row.phase.html_safe %>
-        	</div>
-        </td>
-        <td>
+        <td lass="span3">
         	<div contenteditable="true" id=<%= "#{uvp_row.id}" %> data-column="sactivity">
         		<%= uvp_row.sactivity.html_safe %>
         	</div>
         </td>
-		<td>
+		<td lass="span3">
 			<div contenteditable="true" id=<%= "#{uvp_row.id+300 }" %> data-column="lactivity", cke_id="300">
         		<%= uvp_row.lactivity.html_safe %>
         	</div>
 		</td>
-        <td>
+        <td lass="span3">
         	<div contenteditable="true" id=<%= "#{uvp_row.id+400 }" %> data-column="medium", cke_id="400">
         		<%= uvp_row.medium.html_safe %>
         	</div>
